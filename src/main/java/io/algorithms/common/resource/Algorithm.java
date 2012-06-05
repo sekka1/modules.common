@@ -5,7 +5,7 @@
 */
 package io.algorithms.common.resource;
 
-import io.algorithms.entity.DataSetEntityBase;
+import io.algorithms.entity.DataSetEntity;
 
 import java.io.IOException;
 import java.util.List;
@@ -24,7 +24,8 @@ public interface Algorithm {
      * @throws InvalidParameterException if any of the input parameters are invalid
      * @return List of sample output datasets for the given input datasets and parameters
      */
-    List<DataSetEntityBase> validate(List<DataSetEntityBase> inputDataSets, Properties parameters) throws InvalidDataSetException, InvalidParameterException;
+    List<DataSetEntity> validate(List<DataSetEntity> inputDataSets, Properties parameters)
+            throws InvalidDataSetException, InvalidParameterException, IOException;
     
     /**
      * Runs the algorithm.
@@ -36,6 +37,6 @@ public interface Algorithm {
      * @throws AlgorithmException 
      * @throws IOException 
      */
-    List<DataSetEntityBase> run(List<DataSetEntityBase> inputDataSets, Properties parameters)
+    List<DataSetEntity> run(List<DataSetEntity> inputDataSets, Properties parameters)
             throws InvalidDataSetException, InvalidParameterException, IOException, AlgorithmException;
 }
